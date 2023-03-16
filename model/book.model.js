@@ -1,6 +1,8 @@
 const { db } = require('../database/db');
 const { DataTypes } = require('sequelize');
 
+//titulo, autor, precio, rating, género=category, editorial, cant de páginas. fecha de publicación. sinopsis y fotos (3)
+
 exports.Book = db.define('book', {
   id: {
     primaryKey: true,
@@ -8,7 +10,7 @@ exports.Book = db.define('book', {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  namebook: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -16,35 +18,38 @@ exports.Book = db.define('book', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  country: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  dateEdition: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
   price: {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
-  porcentajeDiscout: {
+  rating: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+  numberPages: {
     type: DataTypes.INTEGER,
     allowNull: true,
-    defaultValue: 0,
   },
-  stock: {
-    type: DataTypes.INTEGER,
+  publicationDate: {
+    type: DataTypes.DATE,
     allowNull: false,
   },
   bookImageUrl: {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  sinopsis: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  /*   stock: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   bookPDFUrl: {
     type: DataTypes.STRING,
     allowNull: true,
-  },
+  }, */
   categoryId: {
     type: DataTypes.INTEGER,
     allowNull: false,
